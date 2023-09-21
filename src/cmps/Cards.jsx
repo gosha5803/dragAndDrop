@@ -24,7 +24,7 @@ const Songs = () => {
         setCurrentCard(card)
     }
 
-    const onDragOver = (e) => {
+    const onDragOver = (e, song) => {
         e.preventDefault()
         const target = e.target.closest('.song-item')
         // if (e.target.className === 'song-item') {
@@ -60,6 +60,9 @@ const Songs = () => {
                         if (s.id === currentCard.id) {
                             return {...s, order:card.order - 1}
                         }
+                        // if (s.id === card.id) {
+                        //     return {...s, order:currentCard.order }
+                        // }
                         if (s.order < card.order && s.order > currentCard.order) {
                             return {...s, order: s.order - 1}
                         } else {
